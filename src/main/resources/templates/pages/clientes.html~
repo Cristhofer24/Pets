@@ -36,12 +36,14 @@
         <div class="box">
             <form action="/pages/clientes" method="post" th:object="${clientes}">
 
+
                 <div class="field">
                     <label class="label">Cedula</label>
                     <div class="control">
-                        <input  th:fieldvalue="${clientes.cedula}" class="input" type="text" name="Cedula" placeholder="Ingrese Cedula" required>
+                        <input  th:fieldvalue="${clientes.nombre}" class="input" type="text" name="Cedula" placeholder="Nombre" required>
                     </div>
                 </div>
+
 
                 <div class="field">
                     <label class="label">Nombre</label>
