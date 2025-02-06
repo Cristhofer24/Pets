@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+<h1 th:text="${mensaje}">Bienvenido a la tienda de mascotas</h1>
+<nav>
+    <a href="/clientes">Clientes</a> |
+    <a href="/mascotas">Mascotas</a> |
+    <a href="/adopciones">Adopciones</a>
+</nav>
+</body>
+</html>

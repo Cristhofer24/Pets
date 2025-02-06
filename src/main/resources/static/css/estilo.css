@@ -1,0 +1,109 @@
+@import 'bulma';
+
+/* Fondo de la página */
+body {
+    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Ajustes de la barra de navegación */
+.navbar {
+    padding: 1rem;
+    background-color: #00d1b2;
+}
+
+/* Ajustes en los enlaces de la barra de navegación */
+.navbar-item {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Centrar contenido de la sección */
+.section {
+    margin-top: 50px;
+}
+
+/* Título principal */
+.title {
+    color: #363636;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Estilos para la tabla */
+.table-container {
+    overflow-x: auto;
+    padding: 1rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: #00d1b2;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.table td {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Botón de adoptar */
+.button.is-success {
+    font-weight: bold;
+    background-color: #48c774;
+    border-color: #48c774;
+    color: white;
+}
+
+.button.is-success:hover {
+    background-color: #36a366;
+}
+
+/* Botón general */
+.button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Formulario */
+.box {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Ajuste para los enlaces */
+a {
+    color: #00d1b2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #009e8e;
+}
