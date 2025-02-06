@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro Exitoso</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <h2 class="title has-text-centered">Registro Exitoso</h2>
+
+        <div class="box">
+            <h3 class="subtitle">Datos del Cliente</h3>
+            <p><strong>Cédula:</strong> <span th:text="${cliente.cedula}"></span></p>
+            <p><strong>Nombre:</strong> <span th:text="${cliente.nombre}"></span></p>
+            <p><strong>Teléfono:</strong> <span th:text="${cliente.telefono}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${cliente.email}"></span></p>
+        </div>
+
+        <div class="box">
+            <h3 class="subtitle">Datos de la Mascota</h3>
+            <p><strong>ID Mascota:</strong> <span th:text="${mascota.idMascota}"></span></p>
+            <p><strong>Nombre:</strong> <span th:text="${mascota.nombre}"></span></p>
+            <p><strong>Especie:</strong> <span th:text="${mascota.especie}"></span></p>
+            <p><strong>Raza:</strong> <span th:text="${mascota.raza}"></span></p>
+            <p><strong>Edad:</strong> <span th:text="${mascota.edad}"></span></p>
+        </div>
+
+        <div class="box">
+            <h3 class="subtitle">Detalles de Adopción</h3>
+            <p><strong>Fecha de Adopción:</strong> <span th:text="${adopcion.fechaAdopcion}"></span></p>
+        </div>
+
+        <div class="has-text-centered">
+            <a href="/" class="button is-primary">Volver al Inicio</a>
+        </div>
+    </div>
+</section>
+</body>
+</html>
