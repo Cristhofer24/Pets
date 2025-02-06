@@ -5,47 +5,99 @@
     <title>Adopciones</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="/css/estilo.css">
-
-
 </head>
 <body>
-<h2>Registro de Adopciones</h2>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Cliente</th>
-        <th>Mascota</th>
-        <th>Fecha de Adopción</th>
-        <th>Acciones</th>
-    </tr>
-    <tr th:each="adopcion : ${adopciones}">
-        <td th:text="${adopcion.id}"></td>
-        <td th:text="${adopcion.cliente.nombre}"></td>
-        <td th:text="${adopcion.mascota.nombre}"></td>
-        <td th:text="${adopcion.fechaAdopcion}"></td>
-        <td>
-            <a th:href="@{/adopciones/eliminar/{id}(id=${adopcion.idAdopcion})}">Eliminar</a>
-        </td>
-    </tr>
-</table>
+<!-- Navbar -->
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+        <img src="/img/PetShop-SInFondo.png" alt="Logo" style="max-height: 100px; margin-right: 100px;">
+        <strong>🐾 Tienda de Mascotas</strong>
+        </a>
 
-<h3>Registrar Adopción</h3>
-<form action="/adopciones/guardar" method="post">
-    <label>Cliente:</label>
-    <select name="idCliente">
-        <option th:each="cliente : ${clientes}" th:value="${cliente.idCliente}" th:text="${cliente.nombre}"></option>
-    </select>
+        <!-- Botón para dispositivos móviles -->
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
 
-    <label>Mascota:</label>
-    <select name="idMascota">
-        <option th:each="mascota : ${mascotas}" th:if="${mascota.estado == 'Disponible'}"
-                th:value="${mascota.idMascota}" th:text="${mascota.nombre}"></option>
-    </select>
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="./mascotas">Mascotas</a>
+            <a class="navbar-item" href="./clientes">Clientes</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section class="section">
+        <h2 class="title has-text-centered">Registro de Adopciones</h2>
 
-    <label>Fecha:</label>
-    <input type="date" name="fechaAdopcion" required>
+        <div class="table-container">
+            <table class="table is-fullwidth is-striped is-hoverable">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Mascota</th>
+                    <th>Fecha de Adopción</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="adopcion : ${adopciones}">
+                    <td th:text="${adopcion.id}"></td>
+                    <td th:text="${adopcion.cliente.nombre}"></td>
+                    <td th:text="${adopcion.mascota.nombre}"></td>
+                    <td th:text="${adopcion.fechaAdopcion}"></td>
+                    <td>
+                        <a th:href="@{/adopciones/eliminar/{id}(id=${adopcion.idAdopcion})}" class="button is-danger is-small">Eliminar</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <button type="submit">Registrar Adopción</button>
-</form>
+        <h3 class="title is-4 has-text-centered">Registrar Adopción</h3>
+        <div class="box">
+            <form action="/adopciones/guardar" method="post">
+                <div class="field">
+                    <label class="label">Cliente:</label>
+                    <div class="control">
+                        <div class="select is-fullwidth">
+                            <select name="idCliente">
+                                <option th:each="cliente : ${clientes}" th:value="${cliente.idCliente}" th:text="${cliente.nombre}"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Mascota:</label>
+                    <div class="control">
+                        <div class="select is-fullwidth">
+                            <select name="idMascota">
+                                <option th:each="mascota : ${mascotas}" th:if="${mascota.estado == 'Disponible'}"
+                                        th:value="${mascota.idMascota}" th:text="${mascota.nombre}"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Fecha:</label>
+                    <div class="control">
+                        <input class="input" type="date" name="fechaAdopcion" required>
+                    </div>
+                </div>
+
+                <div class="field has-text-centered">
+                    <button type="submit" class="button is-success">Registrar Adopción</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
 </body>
 </html>

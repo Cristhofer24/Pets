@@ -1,26 +1,56 @@
+
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
+
+    <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <!-- Estilos personalizados -->
     <link rel="stylesheet" href="/css/estilo.css">
-
-
 </head>
 <body>
-<a class="navbar-burger" role="button" aria-label="menu" aria-expanded="false">
-    <span aria-hidden="true"></span>
-    <span aria-hidden="true"></span>
-    <span aria-hidden="true"></span>
-    <span aria-hidden="true"></span>
-</a>
-<h1 th:text="${mensaje}">Bienvenido a la tienda de mascotas</h1>
-<nav>
-    <a href="pages/clientes">Clientes</a>
-    <a href="pages/mascotas">Mascotas</a>
-    <a href="pages/adopciones">Adopciones</a>
+
+<!-- Navbar -->
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item">
+            <!-- Imagen de logo al lado del nombre -->
+            <img src="/img/PetShop-SInFondo.png" alt="Logo" style="max-height: 100px; margin-right: 100px;">
+
+            <strong>🐾 Tienda de Mascotas</strong>
+        </a>
+
+        <!-- Botón para dispositivos móviles -->
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <!--- imagenes  --->
+
+    </div>
+
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="pages/clientes">Clientes</a>
+            <a class="navbar-item" href="pages/mascotas">Mascotas</a>
+            <a class="navbar-item" href="pages/adopciones">Adopciones</a>
+        </div>
+    </div>
 </nav>
+
+<!-- Contenido principal -->
+<section class="section">
+    <div class="container">
+        
+        <h1 class="title has-text-centered" th:text="${mensaje}">Bienvenido a la tienda de mascotas</h1>
+    </div>
+</section>
+
 </body>
 </html>
+
