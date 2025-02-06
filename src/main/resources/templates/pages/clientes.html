@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/estilo.css">
+
+
+</head>
+<body>
+<h2>Lista de Clientes</h2>
+<table>
+    <tr>
+        <th>Cedula</th>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="cliente : ${clientes}">
+        <td th:text="${cliente.cedula}"></td>
+        <td th:text="${cliente.nombre}"></td>
+        <td th:text="${cliente.telefono}"></td>
+        <td th:text="${cliente.email}"></td>
+        <td>
+            <a th:href="@{/clientes/eliminar/{id}(id=${cliente.idCliente})}">Eliminar</a>
+        </td>
+    </tr>
+</table>
+
+<h3>Agregar Cliente</h3>
+<form action="/clientes/guardar" method="post">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="text" name="telefono" placeholder="Teléfono">
+    <input type="email" name="email" placeholder="Email">
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>

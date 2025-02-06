@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mascotas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/estilo.css">
+
+
+</head>
+<body>
+<h2>Lista de Mascotas</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Especie</th>
+        <th>Raza</th>
+        <th>Edad</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+    </tr>
+
+    <tr th:each="mascota : ${mascotas}">
+    <td th:text="${mascota.idMascota}"></td>
+    <td th:text="${mascota.nombre}"></td>
+    <td th:text="${mascota.especie}"></td>
+    <td th:text="${mascota.raza}"></td>
+    <td th:text="${mascota.edad}"></td>
+    <td th:text="${mascota.estado}"></td>
+    <td th:if="${mascota.estado == 'Disponible'}">
+        <a th:href="@{/adopciones/registrar/{id}(id=${mascota.idMascota})}">Adoptar</a>
+    </td>
+</tr>
+</table>
+
+<h3>Agregar Mascota</h3>
+<form action="/mascotas/guardar" method="post">
+    <input type="text" name="nombre" placeholder="Nombre">
+    <input type="text" name="especie" placeholder="Especie" required>
+    <input type="text" name="raza" placeholder="Raza">
+    <input type="number" name="edad" placeholder="Edad">
+    <input type="number" step="0.01" name="precioVacuna" placeholder="PrecioVacuna" required>
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>

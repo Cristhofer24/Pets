@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adopciones</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/estilo.css">
+
+
+</head>
+<body>
+<h2>Registro de Adopciones</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Mascota</th>
+        <th>Fecha de Adopción</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="adopcion : ${adopciones}">
+        <td th:text="${adopcion.id}"></td>
+        <td th:text="${adopcion.cliente.nombre}"></td>
+        <td th:text="${adopcion.mascota.nombre}"></td>
+        <td th:text="${adopcion.fechaAdopcion}"></td>
+        <td>
+            <a th:href="@{/adopciones/eliminar/{id}(id=${adopcion.idAdopcion})}">Eliminar</a>
+        </td>
+    </tr>
+</table>
+
+<h3>Registrar Adopción</h3>
+<form action="/adopciones/guardar" method="post">
+    <label>Cliente:</label>
+    <select name="idCliente">
+        <option th:each="cliente : ${clientes}" th:value="${cliente.idCliente}" th:text="${cliente.nombre}"></option>
+    </select>
+
+    <label>Mascota:</label>
+    <select name="idMascota">
+        <option th:each="mascota : ${mascotas}" th:if="${mascota.estado == 'Disponible'}"
+                th:value="${mascota.idMascota}" th:text="${mascota.nombre}"></option>
+    </select>
+
+    <label>Fecha:</label>
+    <input type="date" name="fechaAdopcion" required>
+
+    <button type="submit">Registrar Adopción</button>
+</form>
+</body>
+</html>

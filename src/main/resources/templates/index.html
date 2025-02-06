@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/estilo.css">
+
+
+</head>
+<body>
+<a class="navbar-burger" role="button" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+</a>
+<h1 th:text="${mensaje}">Bienvenido a la tienda de mascotas</h1>
+<nav>
+    <a href="pages/clientes">Clientes</a>
+    <a href="pages/mascotas">Mascotas</a>
+    <a href="pages/adopciones">Adopciones</a>
+</nav>
+</body>
+</html>
