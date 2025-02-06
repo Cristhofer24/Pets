@@ -38,7 +38,7 @@
         <div class="navbar-start">
             <a class="navbar-item" href="pages/clientes">Clientes</a>
             <a class="navbar-item" href="pages/mascotas">Mascotas</a>
-            <a class="navbar-item" href="pages/carnet">Adopciones</a>
+            <a class="navbar-item" href="pages/adopciones">Adopciones</a>
         </div>
     </div>
 </nav>

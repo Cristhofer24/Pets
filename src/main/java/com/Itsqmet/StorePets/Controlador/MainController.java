@@ -20,7 +20,7 @@ public class MainController {
 
     @GetMapping("pages/adopciones")
     public String mostrarAdopciones() {
-        return "pages/adopcion"; // Ruta a la plantilla adopcion.html
+        return "pages/carnet"; // Ruta a la plantilla carnet.html
     }
     @GetMapping("pages/clientes")
     public String mostrarClientes() {

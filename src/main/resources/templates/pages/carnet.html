@@ -39,10 +39,9 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Cliente</th>
-                    <th>Mascota</th>
-                    <th>Fecha de Adopción</th>
-                    <th>Acciones</th>
+                    <th>Fecha  Carnet</th>
+                    <th>Fecha  Adopción</th>
+                    <th>Lista  Mascotas</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -62,19 +61,23 @@
         <h3 class="title is-4 has-text-centered">Registrar Adopción</h3>
         <div class="box">
             <form action="/adopciones/guardar" method="post">
+
                 <div class="field">
-                    <label class="label">Cliente:</label>
+                    <label class="label">Fecha Carnet:</label>
                     <div class="control">
-                        <div class="select is-fullwidth">
-                            <select name="idCliente">
-                                <option th:each="cliente : ${clientes}" th:value="${cliente.idCliente}" th:text="${cliente.nombre}"></option>
-                            </select>
-                        </div>
+                        <input class="input" type="date" name="fechaAdopcion" required>
                     </div>
                 </div>
 
                 <div class="field">
-                    <label class="label">Mascota:</label>
+                    <label class="label">Fecha Adopcion:</label>
+                    <div class="control">
+                        <input class="input" type="date" name="fechaAdopcion" required>
+                    </div>
+                </div>
+
+                 <div class="field">
+                    <label class="label">Lista de Mascotas:</label>
                     <div class="control">
                         <div class="select is-fullwidth">
                             <select name="idMascota">
@@ -85,12 +88,7 @@
                     </div>
                 </div>
 
-                <div class="field">
-                    <label class="label">Fecha:</label>
-                    <div class="control">
-                        <input class="input" type="date" name="fechaAdopcion" required>
-                    </div>
-                </div>
+
 
                 <div class="field has-text-centered">
                     <button type="submit" class="button is-success">Registrar Adopción</button>

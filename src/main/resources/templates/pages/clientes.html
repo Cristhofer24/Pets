@@ -51,6 +51,7 @@
                     <td th:text="${cliente.nombre}"></td>
                     <td th:text="${cliente.telefono}"></td>
                     <td th:text="${cliente.email}"></td>
+
                     <td>
                         <a th:href="@{/clientes/eliminar/{id}(id=${cliente.idCliente})}" class="button is-danger is-small">Eliminar</a>
                     </td>
@@ -63,6 +64,11 @@
         <div class="box">
             <form action="/clientes/guardar" method="post">
                 <div class="field">
+                    <div>
+                    <label class="label">Cédula</label>
+                    <div class="control">
+                        <input class="input" type="text" name="cedula" placeholder="Cédula" required>
+                    </div>
                     <label class="label">Nombre</label>
                     <div class="control">
                         <input class="input" type="text" name="nombre" placeholder="Nombre" required>
