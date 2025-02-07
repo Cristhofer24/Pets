@@ -44,9 +44,9 @@
         <h3 class="title is-4">Agregar Cliente</h3>
         <div class="box">
             <form th:action="@{/clientes/guardar}" method="post" th:object="${clientes}">
-                <input  th:fieldvalue="${clientes.id}" class="input" type="text" name="id">
+                <input  th:fieldvalue="${clientes.id}" class="input hidden" type="hidden" name="id">
 
-                <input type="text" name="origin" th:value="${origin}" class="text-black"/>
+                <input type="hidden" name="origin" th:value="${origin}" class=" hidden text-black"/>
 
                 <div class="field">
                     <label class="label">Cedula</label>

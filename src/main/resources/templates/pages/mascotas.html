@@ -46,42 +46,11 @@
 
         <h2 class="title has-text-centered">Lista de Mascotas</h2>
 
-        <!-- Tabla de mascotas -->
-       <!-- <div class="table-container">
-            <table class="table is-striped is-hoverable is-fullwidth">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Especie</th>
-                    <th>Raza</th>
-                    <th>Edad</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="mascota : ${mascotas}">
-                    <td th:text="${mascota.idMascota}"></td>
-                    <td th:text="${mascota.nombre}"></td>
-                    <td th:text="${mascota.especie}"></td>
-                    <td th:text="${mascota.raza}"></td>
-                    <td th:text="${mascota.edad}"></td>
-                    <td th:text="${mascota.estado}"></td>
-                    <td th:if="${mascota.estado == 'Disponible'}">
-                        <a class="button is-success is-small"
-                           th:href="@{/adopciones/registrar/{id}(id=${mascota.idMascota})}">Adoptar</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>-->
-
         <!-- Formulario para agregar mascota -->
         <h3 class="title is-4 has-text-centered">Registro de  Mascota</h3>
 
         <form th:action="@{/pages/mascotas}" method="post" class="box" th:object="${mascota}">
-            <input  th:fieldvalue="${mascota.id}" class="input" type="text" name="id">
+            <input  th:fieldvalue="${mascota.id}" class="input" type="hidden" name="id">
 
             <div class="field">
                 <label class="label">Nombre</label>

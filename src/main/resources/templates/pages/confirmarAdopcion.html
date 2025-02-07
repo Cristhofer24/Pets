@@ -50,8 +50,8 @@
     <h1 class="title">Formulario de Adopción</h1>
 
     <form th:action="@{/adoptar/guardar}" method="post">
-        <input type="text" name="mascotaId" th:value="${mascota.id}" />
-        <input type="text" name="clienteId" th:value="${cliente.id}" />
+        <input type="hidden" name="mascotaId" th:value="${mascota.id}" />
+        <input type="hidden" name="clienteId" th:value="${cliente.id}" />
 
         <div class="field">
             <label class="label">Nombre de la Mascota</label>

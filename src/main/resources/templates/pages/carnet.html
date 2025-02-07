@@ -54,7 +54,7 @@
         <h3 class="title is-4 has-text-centered">Registrar Carnet</h3>
         <div class="box">
             <form th:action="@{/pages/carnet}" method="post" th:object="${carnet}">
-                <input  th:fieldvalue="${carnet.id}" class="input" type="text" name="id">
+                <input  th:fieldvalue="${carnet.id}" class="hidden" type="text" name="id">
                 <div class="field">
                     <label class="label">Fecha Carnet:</label>
                     <div class="control">
