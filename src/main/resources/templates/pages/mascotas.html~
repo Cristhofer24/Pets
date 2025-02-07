@@ -32,7 +32,7 @@
     <div class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item" href="./clientes">Clientes</a>
-            <a class="navbar-item" href="./carnet">Adopciones</a>
+            <a class="navbar-item" href="./adopciones">Adopciones</a>
         </div>
     </div>
 </nav>

@@ -24,21 +24,13 @@
             <strong>🐾 Tienda de Mascotas</strong>
         </a>
 
-        <!-- Botón para dispositivos móviles -->
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-        <!--- imagenes  --->
-
     </div>
 
     <div class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item" href="pages/clientes">Clientes</a>
             <a class="navbar-item" href="pages/mascotas">Mascotas</a>
-            <a class="navbar-item" href="pages/carnet">Adopciones</a>
+            <a class="navbar-item" href="pages/carnet">Carnet</a>
         </div>
     </div>
 </nav>
@@ -46,13 +38,92 @@
 <!-- Contenido principal -->
 <section class="section">
     <div class="container">
-        
         <h1 class="title has-text-centered" th:text="${mensaje}">Bienvenido a la tienda de mascotas</h1>
     </div>
 </section>
 
+<section class="section">
+    <div class="container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+
+        <!-- Tarjeta 1 -->
+        <div class="card" style="max-width: 400px; width: 100%;">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="/img/cachorro.jpg" alt="Placeholder image" />
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">Perros</p>
+                        <p class="subtitle is-6">de todas las razas</p>
+                    </div>
+                </div>
+                <div class="content">
+                    Cachorros de todas las razas y edades con vacunas y documentos al dia
+                    <br />
+                    <time datetime="2016-1-1">Pet-shop con mas de 500 articulos para tu mascota</time>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="card" style="max-width: 400px; width: 100%;">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="/img/gatos.jpg" alt="Placeholder image" />
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">Gatos</p>
+                        <p class="subtitle is-6">de todas las razas</p>
+                    </div>
+                </div>
+                <div class="content">
+                    Gatos de todas las razas y edades con vacunas y documentos al dia
+                    <br />
+                    <time datetime="2016-1-1">Pet-shop con mas de 500 articulos para tu mascota</time>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="card" style="max-width: 400px; width: 100%;">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="/img/hammster.jpg" alt="Placeholder image" />
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">Otras especies</p>
+                        <p class="subtitle is-6">Mascotas exoticas</p>
+                    </div>
+                </div>
+                <div class="content">
+                    Otros animales de todas las especies legales para mascotas
+                    <br />
+                    <time datetime="2016-1-1">Pet-shop con mas de 500 articulos para tu mascota</time>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
 <!-- Footer -->
-<footer class="footer has-background-primary" style="padding: 1px 0;">
+<footer class="footer has-background-primary" style="padding: 20px;">
     <div class="content has-text-centered">
         <!-- Logo y texto en el centro -->
         <img src="/img/PetShop-SInFondo.png" alt="Logo" style="max-height: 60px; margin-bottom: 10px;">
@@ -72,11 +143,11 @@
         <div class="columns is-mobile" style="margin-top: 10px;">
             <!-- Mapa (con altura reducida) -->
             <div class="column is-half" style="padding-right: 5px;">
-                <iframe src="https://www.google.com/maps/embed?pb=...tu_direccion..." width="50%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=...tu_direccion..." width="200 px" height="200 px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
             <!-- Formulario de sugerencias y mensajes -->
-            <div class="column is-half" style="padding-left: 5px;" >
+            <div class="column is-half" style="padding-left: -30px;" >
                 <textarea class="textarea" placeholder="Escribe tu sugerencia..." rows="3" style="margin-bottom: 5px;" width="50%" height="200"></textarea>
                 <button class="button is-link is-small" style="width: 10%;">Enviar</button>
             </div>
