@@ -56,4 +56,7 @@ public class Carnet {
     public void setMascota(Mascota mascota) {
         this.mascota = mascota;
     }
+
+
+
 }

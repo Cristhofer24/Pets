@@ -1,4 +1,4 @@
-package com.Itsqmet.StorePets.Controlador;
+/*package com.Itsqmet.StorePets.Controlador;
 
 import com.Itsqmet.StorePets.Entidad.Carnet;
 import com.Itsqmet.StorePets.Entidad.Cliente;
@@ -71,4 +71,4 @@ public class PetsController {
 
 
 
-}
+}*/

@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -15,9 +16,11 @@
 <!-- Navbar -->
 <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-        <img src="/img/PetShop-SInFondo.png" alt="Logo" style="max-height: 100px; margin-right: 100px;">
-        <strong>🐾 Tienda de Mascotas</strong>
+        <a class="navbar-item" th:href="@{/}">
+            <!-- Imagen de logo al lado del nombre -->
+            <img src="/img/PetShop-SInFondo.png" alt="Logo" style="max-height: 100px; margin-right: 100px;">
+
+            <strong>🐾 Tienda de Mascotas</strong>
         </a>
 
         <!-- Botón para dispositivos móviles -->
@@ -26,12 +29,14 @@
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
         </a>
+        <!--- imagenes  --->
+
     </div>
 
     <div class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item" href="./clientes">Clientes</a>
-            <a class="navbar-item" href="./adopciones">Adopciones</a>
+            <a class="navbar-item" href="/Adoptar">Adoptar Mascotas</a>
+            <a class="navbar-item" href="pages/clientes">Registro de Adopciones</a>
         </div>
     </div>
 </nav>
@@ -42,7 +47,7 @@
         <h2 class="title has-text-centered">Lista de Mascotas</h2>
 
         <!-- Tabla de mascotas -->
-        <div class="table-container">
+       <!-- <div class="table-container">
             <table class="table is-striped is-hoverable is-fullwidth">
                 <thead>
                 <tr>
@@ -56,8 +61,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="mascota : ${Mascotas}">
-                    <td th:field="*{mascota.id}"></td>
+                <tr th:each="mascota : ${mascotas}">
+                    <td th:text="${mascota.idMascota}"></td>
                     <td th:text="${mascota.nombre}"></td>
                     <td th:text="${mascota.especie}"></td>
                     <td th:text="${mascota.raza}"></td>
@@ -65,51 +70,44 @@
                     <td th:text="${mascota.estado}"></td>
                     <td th:if="${mascota.estado == 'Disponible'}">
                         <a class="button is-success is-small"
-                           th:href="@{/adopciones/registrar/{id}(id=${mascota.idMascota})}">
-                            Adoptar
-                        </a>
+                           th:href="@{/adopciones/registrar/{id}(id=${mascota.idMascota})}">Adoptar</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
-        </div>
+        </div>-->
 
         <!-- Formulario para agregar mascota -->
-        <h3 class="title is-4 has-text-centered">Agregar Mascota</h3>
+        <h3 class="title is-4 has-text-centered">Registro de  Mascota</h3>
 
-        <form action="/mascotas/guardar" method="post" class="box">
+        <form th:action="@{/pages/mascotas}" method="post" class="box" th:object="${mascota}">
+            <input  th:fieldvalue="${mascota.id}" class="input" type="text" name="id">
+
             <div class="field">
                 <label class="label">Nombre</label>
                 <div class="control">
-                    <input class="input" type="text" name="nombre" placeholder="Nombre">
+                    <input  th:fieldvalue="${mascota.nombre}" class="input" type="text" name="nombre" placeholder="Nombre">
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Especie</label>
                 <div class="control">
-                    <input class="input" type="text" name="especie" placeholder="Especie" required>
+                    <input  th:fieldvalue="${mascota.especie}" class="input" type="text" name="especie" placeholder="Especie" required>
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Raza</label>
                 <div class="control">
-                    <input class="input" type="text" name="raza" placeholder="Raza">
+                    <input   th:fieldvalue="${mascota.raza}" class="input" type="text" name="raza" placeholder="Raza">
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Edad</label>
                 <div class="control">
-                    <input class="input" type="number" name="edad" placeholder="Edad">
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Precio Vacuna</label>
-                <div class="control">
-                    <input class="input" type="number" step="0.01" name="precioVacuna" placeholder="Precio Vacuna" required>
+                    <input  th:fieldvalue="${mascota.edad}" class="input" type="number" name="edad" placeholder="Edad">
                 </div>
             </div>
 

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mascotas</title>
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" th:href="@{/}">
+            <!-- Imagen de logo al lado del nombre -->
+            <img src="/img/PetShop-SInFondo.png" alt="Logo" style="max-height: 100px; margin-right: 100px;">
+
+            <strong>🐾 Tienda de Mascotas</strong>
+        </a>
+
+        <!-- Botón para dispositivos móviles -->
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <!--- imagenes  --->
+
+    </div>
+
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/Adoptar">Adoptar Mascotas</a>
+            <a class="navbar-item" href="pages/clientes">Registro de Adopciones</a>
+        </div>
+    </div>
+</nav>
+
+
+<div th:if="${success}" class="notification is-success">
+    <p th:text="${success}"></p>
+</div>
+<div th:if="${error}" class="notification is-danger">
+    <p th:text="${error}"></p>
+</div>
+
+<div class="container">
+    <h1 class="title">Formulario de Adopción</h1>
+
+    <form th:action="@{/adoptar/guardar}" method="post">
+        <input type="text" name="mascotaId" th:value="${mascota.id}" />
+        <input type="text" name="clienteId" th:value="${cliente.id}" />
+
+        <div class="field">
+            <label class="label">Nombre de la Mascota</label>
+            <div class="control">
+                <input class="input" type="text" th:value="${mascota.nombre}" readonly>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Raza</label>
+            <div class="control">
+                <input class="input" type="text" th:value="${mascota.raza}" readonly>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Especie</label>
+            <div class="control">
+                <input class="input" type="text" th:value="${mascota.especie}" readonly>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Edad</label>
+            <div class="control">
+                <input class="input" type="number" th:value="${mascota.edad}" readonly>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Nombre del Cliente</label>
+            <div class="control">
+                <input class="input" type="text" th:value="${cliente.nombre}" readonly>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Email del Cliente</label>
+            <div class="control">
+                <input class="input" type="email" th:value="${cliente.email}" readonly>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Telefono del  Cliente</label>
+            <div class="control">
+                <input class="input" type="email" th:value="${cliente.telefono}" readonly>
+            </div>
+        </div>
+
+
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-primary">Confirmar Adopción</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

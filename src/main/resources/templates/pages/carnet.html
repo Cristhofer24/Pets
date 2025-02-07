@@ -2,12 +2,28 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Clientes</title>
+    <title>Adopciones</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
-<!-- Navbar -->
+<style>
+    .notification-error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<div th:if="${error}" class="notification-error">
+    <strong>Error:</strong> <span th:text="${error}"></span>
+</div>
+
+
+
 <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" th:href="@{/}">
@@ -35,56 +51,48 @@
     </div>
 </nav>
 
-<div th:if="${error}" class="notification-error">
-    <strong>Error:</strong> <span th:text="${error}"></span>
-</div>
-
-<section class="section">
-    <div class="container">
-        <h3 class="title is-4">Agregar Cliente</h3>
+        <h3 class="title is-4 has-text-centered">Registrar Carnet</h3>
         <div class="box">
-            <form th:action="@{/clientes/guardar}" method="post" th:object="${clientes}">
-                <input  th:fieldvalue="${clientes.id}" class="input" type="text" name="id">
-
-                <input type="text" name="origin" th:value="${origin}" class="text-black"/>
-
+            <form th:action="@{/pages/carnet}" method="post" th:object="${carnet}">
+                <input  th:fieldvalue="${carnet.id}" class="input" type="text" name="id">
                 <div class="field">
-                    <label class="label">Cedula</label>
+                    <label class="label">Fecha Carnet:</label>
                     <div class="control">
-                        <input  th:fieldvalue="${clientes.cedula}" class="input" type="text" name="Cedula" placeholder="Ingrese Cedula" required>
+                        <input th:field="*{fechaCertificado}" class="input" type="date" required>
                     </div>
                 </div>
 
                 <div class="field">
-                    <label class="label">Nombre</label>
+                    <label class="label">Fecha Vacunas:</label>
                     <div class="control">
-                        <input  th:fieldvalue="${clientes.nombre}" class="input" type="text" name="nombre" placeholder="Nombre" required>
+                        <input th:field="*{fechaVacunas}" class="input" type="date" required>
                     </div>
                 </div>
+
                 <div class="field">
-                    <label class="label">Teléfono</label>
+                    <label class="label">Lista de Mascotas:</label>
                     <div class="control">
-                        <input th:fieldvalue="${clientes.telefono}"    class="input" type="text" name="telefono" placeholder="Teléfono">
+                        <div class="select is-fullwidth">
+                            <select th:field="*{mascota.id}">
+                                <option th:each="mascota : ${mascotas}"
+                                        th:value="${mascota.id}"
+                                        th:text="${mascota.nombre}"></option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <div class="field">
-                    <label class="label">Email</label>
-                    <div class="control">
-                        <input th:fieldvalue="${clientes.email}"  class="input" type="email" name="email" placeholder="Email">
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <button type="submit" class="button is-primary">Guardar</button>
-                    </div>
+
+                <div class="field has-text-centered">
+                    <button type="submit" class="button is-success">Registrar Carnet</button>
                 </div>
             </form>
         </div>
-    </div>
-</section>
-
+    </section>
+</div>
 <script th:if="${error}">
     alert([[${error}]]);
 </script>
+
+
 </body>
 </html>

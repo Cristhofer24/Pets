@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mascotas</title>
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" th:href="@{/}">
+            <!-- Imagen de logo al lado del nombre -->
+            <img src="/img/PetShop-SInFondo.png" alt="Logo" style="max-height: 100px; margin-right: 100px;">
+
+            <strong>🐾 Tienda de Mascotas</strong>
+        </a>
+
+        <!-- Botón para dispositivos móviles -->
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <!--- imagenes  --->
+
+    </div>
+
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/Adoptar">Adoptar Mascotas</a>
+            <a class="navbar-item" href="pages/clientes">Registro de Adopciones</a>
+        </div>
+    </div>
+</nav>
+
+<input type="text" id="clienteId" th:value="${param.clienteId}" />
+
+<div class="table-container">
+    <table class="table is-striped is-hoverable is-fullwidth">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Raza</th>
+            <th>Edad</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mascota : ${mascota}">
+            <td th:text="${mascota.id}"></td>
+            <td th:text="${mascota.nombre}"></td>
+            <td th:text="${mascota.especie}"></td>
+            <td th:text="${mascota.raza}"></td>
+            <td th:text="${mascota.edad}"></td>
+            <td>
+                <a class="button is-success is-small"
+                   th:if="${param.clienteId != null}"
+                   th:href="@{/adoptar/{mascotaId}(mascotaId=${mascota.id}, clienteId=${param.clienteId})}">Adoptar</a>
+
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro Exitoso</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+
+
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" th:href="@{/}">
+            <!-- Imagen de logo al lado del nombre -->
+            <img src="/img/PetShop-SInFondo.png" alt="Logo" style="max-height: 100px; margin-right: 100px;">
+
+            <strong>🐾 Tienda de Mascotas</strong>
+        </a>
+
+        <!-- Botón para dispositivos móviles -->
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <!--- imagenes  --->
+
+    </div>
+
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/Admin">Volver a Administrador</a>
+        </div>
+    </div>
+</nav>
+<section class="section">
+    <div class="container">
+        <h2 class="title has-text-centered">Registro Exitoso</h2>
+
+        <!-- Tabla de Datos del Cliente -->
+        <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha del Certificado</th>
+                <th>Fecha de Vacunas</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="carnet : ${carnet}">
+                <td th:text="${carnet.id}"></td>
+                <td th:text="${carnet.fechaCertificado}"></td>
+                <td th:text="${carnet.fechaVacunas}"></td>
+                <td>
+                    <a class="button is-success is-small">Eliminar</a>
+                    <a class="button is-success is-small">Editar</a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <!-- Tabla de Datos de la Mascota -->
+    </div>
+</section>
+
+</body>
+</html>

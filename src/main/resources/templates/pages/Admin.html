@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro Exitoso</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" th:href="@{/}">
+            <!-- Imagen de logo al lado del nombre -->
+            <img src="/img/PetShop-SInFondo.png" alt="Logo" style="max-height: 100px; margin-right: 100px;">
+
+            <strong>🐾 Tienda de Mascotas</strong>
+        </a>
+
+        <!-- Botón para dispositivos móviles -->
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <!--- imagenes  --->
+
+    </div>
+
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/">Salir</a>
+        </div>
+    </div>
+</nav>
+
+<section class="section">
+    <div class="container">
+        <h2 class="title has-text-centered">Administración</h2>
+
+        <!-- Tarjetas de Administración -->
+        <div class="columns is-centered">
+            <!-- Tarjeta para Administrar Clientes -->
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="title is-4 has-text-centered">Administrar Clientes</h3>
+                        <p class="content">Gestiona los registros de los clientes, sus datos y más.</p>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="/ListClientes" class="card-footer-item">Ver Clientes</a>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- Tarjeta para Administrar Mascotas -->
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="title is-4 has-text-centered">Administrar Mascotas</h3>
+                        <p class="content">Gestiona las mascotas disponibles para adopción y sus datos.</p>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="/ListMascotas" class="card-footer-item">Ver Mascotas</a>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- Tarjeta para Administrar Carnet -->
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="title is-4 has-text-centered">Administrar Carnet</h3>
+                        <p class="content">Gestiona el registro de carnets para los clientes.</p>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="/ListCarnet" class="card-footer-item">Ver Carnets</a>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>

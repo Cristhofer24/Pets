@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CarnetRepositorio extends JpaRepository<Carnet, Long> {
+    Carnet findByMascotaId(Long mascotaId);
 }
